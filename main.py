@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import html as html_module
 import json
+import statistics
 import sys
 import time
 from datetime import datetime, timedelta, timezone
@@ -29,10 +30,12 @@ CITIES = [
 ]
 QUALITIES = "1"
 MAX_AGE_HOURS = 3
-# Ask vs avg_7d: ghost listings (e.g. 800k vs ~4k) must not drive ranking.
+# Picos reales (hammer 16k un día) no deben mover ranking semanal/mensual.
 ASK_OUTLIER_MULT = 3.0
+WEEK_VS_MONTH_MULT = 2.0
 CACHE_TTL_MIN = 10
-HISTORY_DAYS = 7
+HISTORY_DAYS = 28
+HISTORY_WEEK_DAYS = 7
 MAX_URL_LEN = 4096
 
 # --- Config fase 2 ---
@@ -317,9 +320,10 @@ def make_batches(items: list[str], endpoint: str) -> list[list[str]]:
 
     def url_len(batch: list[str]) -> int:
         item_path = ",".join(batch)
-        params = {"locations": ",".join(CITIES), "qualities": QUALITIES}
         if endpoint == "history":
-            params["time-scale"] = "24"
+            params = history_query_params()
+        else:
+            params = {"locations": ",".join(CITIES), "qualities": QUALITIES}
         return len(f"{BASE_URL}/{endpoint}/{item_path}.json?{urlencode(params)}")
 
     for item in items:
@@ -334,11 +338,24 @@ def make_batches(items: list[str], endpoint: str) -> list[list[str]]:
     return batches
 
 
+def history_query_params() -> dict[str, str]:
+    end = datetime.now(timezone.utc).date()
+    start = end - timedelta(days=HISTORY_DAYS)
+    return {
+        "locations": ",".join(CITIES),
+        "qualities": QUALITIES,
+        "time-scale": "24",
+        "date": start.isoformat(),
+        "end_date": end.isoformat(),
+    }
+
+
 def build_url(endpoint: str, batch: list[str]) -> str:
     item_path = ",".join(batch)
-    params = {"locations": ",".join(CITIES), "qualities": QUALITIES}
     if endpoint == "history":
-        params["time-scale"] = "24"
+        params = history_query_params()
+    else:
+        params = {"locations": ",".join(CITIES), "qualities": QUALITIES}
     return f"{BASE_URL}/{endpoint}/{item_path}.json?{urlencode(params)}"
 
 
@@ -486,7 +503,8 @@ def prices_to_df(rows: list[dict]) -> pd.DataFrame:
 
 
 def history_to_df(rows: list[dict]) -> pd.DataFrame:
-    cutoff = datetime.now(timezone.utc) - timedelta(days=HISTORY_DAYS)
+    now = datetime.now(timezone.utc)
+    cutoff = now - timedelta(days=HISTORY_DAYS)
     agg: dict[tuple[str, str], list[dict]] = {}
 
     for entry in rows:
@@ -504,10 +522,14 @@ def history_to_df(rows: list[dict]) -> pd.DataFrame:
                 continue
             if ts < cutoff:
                 continue
+            price = point.get("avg_price", 0) or 0
+            if price <= 0:
+                continue
             key = (item_id, ciudad)
             agg.setdefault(key, []).append(
                 {
-                    "avg_price": point.get("avg_price", 0) or 0,
+                    "ts": ts,
+                    "avg_price": float(price),
                     "item_count": point.get("item_count", 0) or 0,
                 }
             )
@@ -516,19 +538,70 @@ def history_to_df(rows: list[dict]) -> pd.DataFrame:
     for (item_id, ciudad), points in agg.items():
         if not points:
             continue
-        avg_prices = [p["avg_price"] for p in points]
-        counts = [p["item_count"] for p in points]
+        avg_7d, vol_7d = _robust_vwap(points, now, HISTORY_WEEK_DAYS)
+        avg_28d, vol_28d = _robust_vwap(points, now, HISTORY_DAYS)
+        quote = _horizon_quote(avg_7d, avg_28d)
         records.append(
             {
                 "item": item_id,
                 "ciudad": ciudad,
-                "avg_7d": round(sum(avg_prices) / len(avg_prices), 1),
-                "vol_7d": round(sum(counts) / len(counts), 1),
+                "avg_7d": avg_7d,
+                "avg_28d": avg_28d,
+                "quote": quote,
+                "vol_7d": vol_7d,
+                "vol_28d": vol_28d,
             }
         )
     if not records:
-        return pd.DataFrame(columns=["item", "ciudad", "avg_7d", "vol_7d"])
+        return pd.DataFrame(
+            columns=[
+                "item",
+                "ciudad",
+                "avg_7d",
+                "avg_28d",
+                "quote",
+                "vol_7d",
+                "vol_28d",
+            ]
+        )
     return pd.DataFrame(records)
+
+
+def _robust_vwap(
+    points: list[dict], now: datetime, days: int
+) -> tuple[float | None, float | None]:
+    """Media ponderada por volumen, recortando días extraordinarios vs la mediana."""
+    cutoff = now - timedelta(days=days)
+    window = [p for p in points if p["ts"] >= cutoff and p["avg_price"] > 0]
+    if not window:
+        return None, None
+    prices = [p["avg_price"] for p in window]
+    med = statistics.median(prices)
+    kept = [
+        p
+        for p in window
+        if med / ASK_OUTLIER_MULT <= p["avg_price"] <= med * ASK_OUTLIER_MULT
+    ]
+    if not kept:
+        kept = window
+    vol_sum = sum(p["item_count"] for p in kept)
+    if vol_sum > 0:
+        vwap = sum(p["avg_price"] * p["item_count"] for p in kept) / vol_sum
+    else:
+        vwap = sum(p["avg_price"] for p in kept) / len(kept)
+    daily_vol = sum(p["item_count"] for p in window) / len(window)
+    return round(vwap, 1), round(daily_vol, 1)
+
+
+def _horizon_quote(avg_7d: float | None, avg_28d: float | None) -> float | None:
+    """Semana si es estable vs el mes; si la semana fue extraordinaria, usar el mes."""
+    if avg_7d is None:
+        return avg_28d
+    if avg_28d is None:
+        return avg_7d
+    if avg_7d > avg_28d * WEEK_VS_MONTH_MULT or avg_7d < avg_28d / WEEK_VS_MONTH_MULT:
+        return avg_28d
+    return avg_7d
 
 
 def build_market_table(
@@ -537,7 +610,10 @@ def build_market_table(
     if history_df.empty:
         merged = prices_df.copy()
         merged["avg_7d"] = None
+        merged["avg_28d"] = None
+        merged["quote"] = None
         merged["vol_7d"] = None
+        merged["vol_28d"] = None
     else:
         merged = prices_df.merge(history_df, on=["item", "ciudad"], how="left")
 
@@ -547,7 +623,10 @@ def build_market_table(
         "bid",
         "ask",
         "avg_7d",
+        "avg_28d",
+        "quote",
         "vol_7d",
+        "vol_28d",
         "bid_edad_h",
         "ask_edad_h",
         "edad_h",
@@ -573,27 +652,21 @@ def _finite_pos(val: Any) -> float | None:
     return f
 
 
-def sane_sell_quote(
-    ask: Any, ask_edad_h: Any, avg_7d: Any
-) -> tuple[float | None, float | None]:
-    """Ask for ranking: drop ghost listings vs avg_7d / stale asks without history."""
+def fair_quote(ask: Any, ask_edad_h: Any, quote: Any, avg_7d: Any) -> tuple[float | None, float | None]:
+    """Precio de ranking: media semana/mes. Ask spot solo si no hay historial usable."""
+    quote_f = _finite_pos(quote) or _finite_pos(avg_7d)
+    if quote_f is not None:
+        return quote_f, None
+
     ask_f = _finite_pos(ask)
-    avg_f = _finite_pos(avg_7d)
     edad_f = None
     if ask_edad_h is not None and not pd.isna(ask_edad_h):
         try:
             edad_f = float(ask_edad_h)
         except (TypeError, ValueError):
             edad_f = None
-
-    if ask_f is not None:
-        if avg_f is not None and ask_f > avg_f * ASK_OUTLIER_MULT:
-            return avg_f, None
-        if avg_f is None and (edad_f is None or edad_f > MAX_AGE_HOURS):
-            return None, None
+    if ask_f is not None and edad_f is not None and edad_f <= MAX_AGE_HOURS:
         return ask_f, edad_f
-    if avg_f is not None:
-        return avg_f, None
     return None, None
 
 
@@ -613,34 +686,33 @@ class MarketLookup:
         return self._rows.get((item, ciudad))
 
     def mat_price(self, item: str, ciudad: str) -> tuple[float | None, float | None, float | None]:
-        """Precio de compra de mat: bid si existe, si no avg_7d."""
+        """Compra de mats: media semanal/mensual (no bid ocasional)."""
         row = self.get(item, ciudad)
         if row is None:
             return None, None, None
-        bid = row.get("bid")
-        if pd.notna(bid) and bid > 0:
+        price = _finite_pos(row.get("quote")) or _finite_pos(row.get("avg_7d"))
+        if price is None:
+            bid = _finite_pos(row.get("bid"))
             edad = row.get("bid_edad_h")
-            vol = row.get("vol_7d")
-            return float(bid), float(edad) if pd.notna(edad) else None, float(vol) if pd.notna(vol) else None
-        avg = row.get("avg_7d")
-        if pd.notna(avg) and avg > 0:
-            vol = row.get("vol_7d")
-            return float(avg), None, float(vol) if pd.notna(vol) else None
-        return None, None, None
+            if bid is not None:
+                return bid, float(edad) if pd.notna(edad) else None, _finite_pos(row.get("vol_7d"))
+            return None, None, None
+        return price, None, _finite_pos(row.get("vol_7d"))
 
     def sell_price(self, item: str, ciudad: str) -> tuple[float | None, float | None, float | None]:
-        """Precio de venta/compra terminado: ask saneado, si no avg_7d."""
+        """Venta/compra de terminado: media semanal/mensual, no ask extraordinario."""
         row = self.get(item, ciudad)
         if row is None:
             return None, None, None
-        price, edad = sane_sell_quote(
-            row.get("ask"), row.get("ask_edad_h"), row.get("avg_7d")
+        price, edad = fair_quote(
+            row.get("ask"),
+            row.get("ask_edad_h"),
+            row.get("quote"),
+            row.get("avg_7d"),
         )
-        vol = row.get("vol_7d")
-        vol_f = float(vol) if pd.notna(vol) else None
         if price is None:
             return None, None, None
-        return price, edad, vol_f
+        return price, edad, _finite_pos(row.get("vol_7d"))
 
 
 def rrr_for_city(city: str, recipe: dict[str, Any]) -> float:
@@ -1344,7 +1416,9 @@ def missing_market_items(
         for _, row in subset.iterrows():
             if (pd.notna(row.get("bid")) and row["bid"] > 0) or (
                 pd.notna(row.get("ask")) and row["ask"] > 0
-            ) or (pd.notna(row.get("avg_7d")) and row["avg_7d"] > 0):
+            ) or (pd.notna(row.get("quote")) and row["quote"] > 0) or (
+                pd.notna(row.get("avg_7d")) and row["avg_7d"] > 0
+            ) or (pd.notna(row.get("avg_28d")) and row["avg_28d"] > 0):
                 has_price = True
                 break
         if not has_price:
@@ -1465,9 +1539,9 @@ def main() -> None:
     if args.verbose:
         print_df(
             market_df[
-                ["item", "ciudad", "bid", "ask", "avg_7d", "vol_7d", "edad_h", "fresco"]
+                ["item", "ciudad", "bid", "ask", "avg_7d", "avg_28d", "quote", "vol_7d", "edad_h", "fresco"]
             ],
-            "Precios + historial 7d",
+            "Precios + media 7d/28d (quote = semana, o mes si la semana fue extraordinaria)",
         )
         print_spread(market_df)
         print_df(ranking_df, "Ranking flete (craft/buy × origen × destino)")
