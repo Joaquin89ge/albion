@@ -1,0 +1,431 @@
+{
+  "T4_SHOES_LEATHER_SET1": {
+    "branch": "leather_gear",
+    "kind": "craft",
+    "bonus_city": "Lymhurst",
+    "enchants": {
+      "0": [{"item_id": "T4_LEATHER", "qty": 8}],
+      "1": [{"item_id": "T4_LEATHER_LEVEL1@1", "qty": 8}],
+      "2": [{"item_id": "T4_LEATHER_LEVEL2@2", "qty": 8}],
+      "3": [{"item_id": "T4_LEATHER_LEVEL3@3", "qty": 8}]
+    }
+  },
+  "T5_SHOES_LEATHER_SET1": {
+    "branch": "leather_gear",
+    "kind": "craft",
+    "bonus_city": "Lymhurst",
+    "enchants": {
+      "0": [{"item_id": "T5_LEATHER", "qty": 8}],
+      "1": [{"item_id": "T5_LEATHER_LEVEL1@1", "qty": 8}],
+      "2": [{"item_id": "T5_LEATHER_LEVEL2@2", "qty": 8}],
+      "3": [{"item_id": "T5_LEATHER_LEVEL3@3", "qty": 8}]
+    }
+  },
+  "T6_SHOES_LEATHER_SET1": {
+    "branch": "leather_gear",
+    "kind": "craft",
+    "bonus_city": "Lymhurst",
+    "enchants": {
+      "0": [{"item_id": "T6_LEATHER", "qty": 8}],
+      "1": [{"item_id": "T6_LEATHER_LEVEL1@1", "qty": 8}],
+      "2": [{"item_id": "T6_LEATHER_LEVEL2@2", "qty": 8}],
+      "3": [{"item_id": "T6_LEATHER_LEVEL3@3", "qty": 8}]
+    }
+  },
+  "T4_HEAD_LEATHER_SET1": {
+    "branch": "leather_gear",
+    "kind": "craft",
+    "bonus_city": "Lymhurst",
+    "enchants": {
+      "0": [{"item_id": "T4_LEATHER", "qty": 8}],
+      "1": [{"item_id": "T4_LEATHER_LEVEL1@1", "qty": 8}],
+      "2": [{"item_id": "T4_LEATHER_LEVEL2@2", "qty": 8}],
+      "3": [{"item_id": "T4_LEATHER_LEVEL3@3", "qty": 8}]
+    }
+  },
+  "T5_HEAD_LEATHER_SET1": {
+    "branch": "leather_gear",
+    "kind": "craft",
+    "bonus_city": "Lymhurst",
+    "enchants": {
+      "0": [{"item_id": "T5_LEATHER", "qty": 8}],
+      "1": [{"item_id": "T5_LEATHER_LEVEL1@1", "qty": 8}],
+      "2": [{"item_id": "T5_LEATHER_LEVEL2@2", "qty": 8}],
+      "3": [{"item_id": "T5_LEATHER_LEVEL3@3", "qty": 8}]
+    }
+  },
+  "T6_HEAD_LEATHER_SET1": {
+    "branch": "leather_gear",
+    "kind": "craft",
+    "bonus_city": "Lymhurst",
+    "enchants": {
+      "0": [{"item_id": "T6_LEATHER", "qty": 8}],
+      "1": [{"item_id": "T6_LEATHER_LEVEL1@1", "qty": 8}],
+      "2": [{"item_id": "T6_LEATHER_LEVEL2@2", "qty": 8}],
+      "3": [{"item_id": "T6_LEATHER_LEVEL3@3", "qty": 8}]
+    }
+  },
+  "T4_ARMOR_LEATHER_SET1": {
+    "branch": "leather_gear",
+    "kind": "craft",
+    "bonus_city": "Thetford",
+    "enchants": {
+      "0": [{"item_id": "T4_LEATHER", "qty": 16}],
+      "1": [{"item_id": "T4_LEATHER_LEVEL1@1", "qty": 16}],
+      "2": [{"item_id": "T4_LEATHER_LEVEL2@2", "qty": 16}],
+      "3": [{"item_id": "T4_LEATHER_LEVEL3@3", "qty": 16}]
+    }
+  },
+  "T5_ARMOR_LEATHER_SET1": {
+    "branch": "leather_gear",
+    "kind": "craft",
+    "bonus_city": "Thetford",
+    "enchants": {
+      "0": [{"item_id": "T5_LEATHER", "qty": 16}],
+      "1": [{"item_id": "T5_LEATHER_LEVEL1@1", "qty": 16}],
+      "2": [{"item_id": "T5_LEATHER_LEVEL2@2", "qty": 16}],
+      "3": [{"item_id": "T5_LEATHER_LEVEL3@3", "qty": 16}]
+    }
+  },
+  "T6_ARMOR_LEATHER_SET1": {
+    "branch": "leather_gear",
+    "kind": "craft",
+    "bonus_city": "Thetford",
+    "enchants": {
+      "0": [{"item_id": "T6_LEATHER", "qty": 16}],
+      "1": [{"item_id": "T6_LEATHER_LEVEL1@1", "qty": 16}],
+      "2": [{"item_id": "T6_LEATHER_LEVEL2@2", "qty": 16}],
+      "3": [{"item_id": "T6_LEATHER_LEVEL3@3", "qty": 16}]
+    }
+  },
+  "T4_SHOES_CLOTH_SET1": {
+    "branch": "cloth_gear",
+    "kind": "craft",
+    "bonus_city": "Bridgewatch",
+    "enchants": {
+      "0": [{"item_id": "T4_CLOTH", "qty": 8}],
+      "1": [{"item_id": "T4_CLOTH_LEVEL1@1", "qty": 8}],
+      "2": [{"item_id": "T4_CLOTH_LEVEL2@2", "qty": 8}],
+      "3": [{"item_id": "T4_CLOTH_LEVEL3@3", "qty": 8}]
+    }
+  },
+  "T5_SHOES_CLOTH_SET1": {
+    "branch": "cloth_gear",
+    "kind": "craft",
+    "bonus_city": "Bridgewatch",
+    "enchants": {
+      "0": [{"item_id": "T5_CLOTH", "qty": 8}],
+      "1": [{"item_id": "T5_CLOTH_LEVEL1@1", "qty": 8}],
+      "2": [{"item_id": "T5_CLOTH_LEVEL2@2", "qty": 8}],
+      "3": [{"item_id": "T5_CLOTH_LEVEL3@3", "qty": 8}]
+    }
+  },
+  "T6_SHOES_CLOTH_SET1": {
+    "branch": "cloth_gear",
+    "kind": "craft",
+    "bonus_city": "Bridgewatch",
+    "enchants": {
+      "0": [{"item_id": "T6_CLOTH", "qty": 8}],
+      "1": [{"item_id": "T6_CLOTH_LEVEL1@1", "qty": 8}],
+      "2": [{"item_id": "T6_CLOTH_LEVEL2@2", "qty": 8}],
+      "3": [{"item_id": "T6_CLOTH_LEVEL3@3", "qty": 8}]
+    }
+  },
+  "T4_HEAD_CLOTH_SET1": {
+    "branch": "cloth_gear",
+    "kind": "craft",
+    "bonus_city": "Thetford",
+    "enchants": {
+      "0": [{"item_id": "T4_CLOTH", "qty": 8}],
+      "1": [{"item_id": "T4_CLOTH_LEVEL1@1", "qty": 8}],
+      "2": [{"item_id": "T4_CLOTH_LEVEL2@2", "qty": 8}],
+      "3": [{"item_id": "T4_CLOTH_LEVEL3@3", "qty": 8}]
+    }
+  },
+  "T5_HEAD_CLOTH_SET1": {
+    "branch": "cloth_gear",
+    "kind": "craft",
+    "bonus_city": "Thetford",
+    "enchants": {
+      "0": [{"item_id": "T5_CLOTH", "qty": 8}],
+      "1": [{"item_id": "T5_CLOTH_LEVEL1@1", "qty": 8}],
+      "2": [{"item_id": "T5_CLOTH_LEVEL2@2", "qty": 8}],
+      "3": [{"item_id": "T5_CLOTH_LEVEL3@3", "qty": 8}]
+    }
+  },
+  "T6_HEAD_CLOTH_SET1": {
+    "branch": "cloth_gear",
+    "kind": "craft",
+    "bonus_city": "Thetford",
+    "enchants": {
+      "0": [{"item_id": "T6_CLOTH", "qty": 8}],
+      "1": [{"item_id": "T6_CLOTH_LEVEL1@1", "qty": 8}],
+      "2": [{"item_id": "T6_CLOTH_LEVEL2@2", "qty": 8}],
+      "3": [{"item_id": "T6_CLOTH_LEVEL3@3", "qty": 8}]
+    }
+  },
+  "T4_ARMOR_CLOTH_SET1": {
+    "branch": "cloth_gear",
+    "kind": "craft",
+    "bonus_city": "Fort Sterling",
+    "enchants": {
+      "0": [{"item_id": "T4_CLOTH", "qty": 16}],
+      "1": [{"item_id": "T4_CLOTH_LEVEL1@1", "qty": 16}],
+      "2": [{"item_id": "T4_CLOTH_LEVEL2@2", "qty": 16}],
+      "3": [{"item_id": "T4_CLOTH_LEVEL3@3", "qty": 16}]
+    }
+  },
+  "T5_ARMOR_CLOTH_SET1": {
+    "branch": "cloth_gear",
+    "kind": "craft",
+    "bonus_city": "Fort Sterling",
+    "enchants": {
+      "0": [{"item_id": "T5_CLOTH", "qty": 16}],
+      "1": [{"item_id": "T5_CLOTH_LEVEL1@1", "qty": 16}],
+      "2": [{"item_id": "T5_CLOTH_LEVEL2@2", "qty": 16}],
+      "3": [{"item_id": "T5_CLOTH_LEVEL3@3", "qty": 16}]
+    }
+  },
+  "T6_ARMOR_CLOTH_SET1": {
+    "branch": "cloth_gear",
+    "kind": "craft",
+    "bonus_city": "Fort Sterling",
+    "enchants": {
+      "0": [{"item_id": "T6_CLOTH", "qty": 16}],
+      "1": [{"item_id": "T6_CLOTH_LEVEL1@1", "qty": 16}],
+      "2": [{"item_id": "T6_CLOTH_LEVEL2@2", "qty": 16}],
+      "3": [{"item_id": "T6_CLOTH_LEVEL3@3", "qty": 16}]
+    }
+  },
+  "T4_2H_TOOL_AXE": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T4_PLANKS", "qty": 6}, {"item_id": "T4_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T4_PLANKS_LEVEL1@1", "qty": 6}, {"item_id": "T4_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T4_PLANKS_LEVEL2@2", "qty": 6}, {"item_id": "T4_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T4_PLANKS_LEVEL3@3", "qty": 6}, {"item_id": "T4_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T5_2H_TOOL_AXE": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T5_PLANKS", "qty": 6}, {"item_id": "T5_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T5_PLANKS_LEVEL1@1", "qty": 6}, {"item_id": "T5_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T5_PLANKS_LEVEL2@2", "qty": 6}, {"item_id": "T5_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T5_PLANKS_LEVEL3@3", "qty": 6}, {"item_id": "T5_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T6_2H_TOOL_AXE": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T6_PLANKS", "qty": 6}, {"item_id": "T6_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T6_PLANKS_LEVEL1@1", "qty": 6}, {"item_id": "T6_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T6_PLANKS_LEVEL2@2", "qty": 6}, {"item_id": "T6_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T6_PLANKS_LEVEL3@3", "qty": 6}, {"item_id": "T6_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T4_2H_TOOL_PICK": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T4_PLANKS", "qty": 6}, {"item_id": "T4_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T4_PLANKS_LEVEL1@1", "qty": 6}, {"item_id": "T4_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T4_PLANKS_LEVEL2@2", "qty": 6}, {"item_id": "T4_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T4_PLANKS_LEVEL3@3", "qty": 6}, {"item_id": "T4_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T5_2H_TOOL_PICK": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T5_PLANKS", "qty": 6}, {"item_id": "T5_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T5_PLANKS_LEVEL1@1", "qty": 6}, {"item_id": "T5_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T5_PLANKS_LEVEL2@2", "qty": 6}, {"item_id": "T5_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T5_PLANKS_LEVEL3@3", "qty": 6}, {"item_id": "T5_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T6_2H_TOOL_PICK": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T6_PLANKS", "qty": 6}, {"item_id": "T6_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T6_PLANKS_LEVEL1@1", "qty": 6}, {"item_id": "T6_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T6_PLANKS_LEVEL2@2", "qty": 6}, {"item_id": "T6_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T6_PLANKS_LEVEL3@3", "qty": 6}, {"item_id": "T6_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T4_2H_TOOL_HAMMER": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T4_PLANKS", "qty": 6}, {"item_id": "T4_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T4_PLANKS_LEVEL1@1", "qty": 6}, {"item_id": "T4_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T4_PLANKS_LEVEL2@2", "qty": 6}, {"item_id": "T4_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T4_PLANKS_LEVEL3@3", "qty": 6}, {"item_id": "T4_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T5_2H_TOOL_HAMMER": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T5_PLANKS", "qty": 6}, {"item_id": "T5_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T5_PLANKS_LEVEL1@1", "qty": 6}, {"item_id": "T5_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T5_PLANKS_LEVEL2@2", "qty": 6}, {"item_id": "T5_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T5_PLANKS_LEVEL3@3", "qty": 6}, {"item_id": "T5_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T6_2H_TOOL_HAMMER": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T6_PLANKS", "qty": 6}, {"item_id": "T6_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T6_PLANKS_LEVEL1@1", "qty": 6}, {"item_id": "T6_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T6_PLANKS_LEVEL2@2", "qty": 6}, {"item_id": "T6_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T6_PLANKS_LEVEL3@3", "qty": 6}, {"item_id": "T6_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T4_2H_TOOL_SICKLE": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T4_PLANKS", "qty": 6}, {"item_id": "T4_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T4_PLANKS_LEVEL1@1", "qty": 6}, {"item_id": "T4_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T4_PLANKS_LEVEL2@2", "qty": 6}, {"item_id": "T4_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T4_PLANKS_LEVEL3@3", "qty": 6}, {"item_id": "T4_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T5_2H_TOOL_SICKLE": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T5_PLANKS", "qty": 6}, {"item_id": "T5_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T5_PLANKS_LEVEL1@1", "qty": 6}, {"item_id": "T5_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T5_PLANKS_LEVEL2@2", "qty": 6}, {"item_id": "T5_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T5_PLANKS_LEVEL3@3", "qty": 6}, {"item_id": "T5_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T6_2H_TOOL_SICKLE": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T6_PLANKS", "qty": 6}, {"item_id": "T6_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T6_PLANKS_LEVEL1@1", "qty": 6}, {"item_id": "T6_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T6_PLANKS_LEVEL2@2", "qty": 6}, {"item_id": "T6_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T6_PLANKS_LEVEL3@3", "qty": 6}, {"item_id": "T6_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T4_2H_TOOL_KNIFE": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T4_LEATHER", "qty": 2}, {"item_id": "T4_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T4_LEATHER_LEVEL1@1", "qty": 2}, {"item_id": "T4_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T4_LEATHER_LEVEL2@2", "qty": 2}, {"item_id": "T4_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T4_LEATHER_LEVEL3@3", "qty": 2}, {"item_id": "T4_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T5_2H_TOOL_KNIFE": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T5_LEATHER", "qty": 2}, {"item_id": "T5_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T5_LEATHER_LEVEL1@1", "qty": 2}, {"item_id": "T5_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T5_LEATHER_LEVEL2@2", "qty": 2}, {"item_id": "T5_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T5_LEATHER_LEVEL3@3", "qty": 2}, {"item_id": "T5_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T6_2H_TOOL_KNIFE": {
+    "branch": "tools",
+    "kind": "craft",
+    "bonus_city": null,
+    "enchants": {
+      "0": [{"item_id": "T6_LEATHER", "qty": 2}, {"item_id": "T6_METALBAR", "qty": 2}],
+      "1": [{"item_id": "T6_LEATHER_LEVEL1@1", "qty": 2}, {"item_id": "T6_METALBAR_LEVEL1@1", "qty": 2}],
+      "2": [{"item_id": "T6_LEATHER_LEVEL2@2", "qty": 2}, {"item_id": "T6_METALBAR_LEVEL2@2", "qty": 2}],
+      "3": [{"item_id": "T6_LEATHER_LEVEL3@3", "qty": 2}, {"item_id": "T6_METALBAR_LEVEL3@3", "qty": 2}]
+    }
+  },
+  "T4_LEATHER": {
+    "branch": "tanner",
+    "kind": "refine",
+    "bonus_city": "Martlock",
+    "enchants": {
+      "0": [{"item_id": "T4_HIDE", "qty": 2}, {"item_id": "T3_LEATHER", "qty": 1}],
+      "1": [{"item_id": "T4_HIDE_LEVEL1@1", "qty": 2}, {"item_id": "T3_LEATHER_LEVEL1@1", "qty": 1}],
+      "2": [{"item_id": "T4_HIDE_LEVEL2@2", "qty": 2}, {"item_id": "T3_LEATHER_LEVEL2@2", "qty": 1}],
+      "3": [{"item_id": "T4_HIDE_LEVEL3@3", "qty": 2}, {"item_id": "T3_LEATHER_LEVEL3@3", "qty": 1}]
+    }
+  },
+  "T5_LEATHER": {
+    "branch": "tanner",
+    "kind": "refine",
+    "bonus_city": "Martlock",
+    "enchants": {
+      "0": [{"item_id": "T5_HIDE", "qty": 3}, {"item_id": "T4_LEATHER", "qty": 1}],
+      "1": [{"item_id": "T5_HIDE_LEVEL1@1", "qty": 3}, {"item_id": "T4_LEATHER_LEVEL1@1", "qty": 1}],
+      "2": [{"item_id": "T5_HIDE_LEVEL2@2", "qty": 3}, {"item_id": "T4_LEATHER_LEVEL2@2", "qty": 1}],
+      "3": [{"item_id": "T5_HIDE_LEVEL3@3", "qty": 3}, {"item_id": "T4_LEATHER_LEVEL3@3", "qty": 1}]
+    }
+  },
+  "T6_LEATHER": {
+    "branch": "tanner",
+    "kind": "refine",
+    "bonus_city": "Martlock",
+    "enchants": {
+      "0": [{"item_id": "T6_HIDE", "qty": 4}, {"item_id": "T5_LEATHER", "qty": 1}],
+      "1": [{"item_id": "T6_HIDE_LEVEL1@1", "qty": 4}, {"item_id": "T5_LEATHER_LEVEL1@1", "qty": 1}],
+      "2": [{"item_id": "T6_HIDE_LEVEL2@2", "qty": 4}, {"item_id": "T5_LEATHER_LEVEL2@2", "qty": 1}],
+      "3": [{"item_id": "T6_HIDE_LEVEL3@3", "qty": 4}, {"item_id": "T5_LEATHER_LEVEL3@3", "qty": 1}]
+    }
+  },
+  "T4_CLOTH": {
+    "branch": "weaver",
+    "kind": "refine",
+    "bonus_city": "Lymhurst",
+    "enchants": {
+      "0": [{"item_id": "T4_FIBER", "qty": 2}, {"item_id": "T3_CLOTH", "qty": 1}],
+      "1": [{"item_id": "T4_FIBER_LEVEL1@1", "qty": 2}, {"item_id": "T3_CLOTH_LEVEL1@1", "qty": 1}],
+      "2": [{"item_id": "T4_FIBER_LEVEL2@2", "qty": 2}, {"item_id": "T3_CLOTH_LEVEL2@2", "qty": 1}],
+      "3": [{"item_id": "T4_FIBER_LEVEL3@3", "qty": 2}, {"item_id": "T3_CLOTH_LEVEL3@3", "qty": 1}]
+    }
+  },
+  "T5_CLOTH": {
+    "branch": "weaver",
+    "kind": "refine",
+    "bonus_city": "Lymhurst",
+    "enchants": {
+      "0": [{"item_id": "T5_FIBER", "qty": 3}, {"item_id": "T4_CLOTH", "qty": 1}],
+      "1": [{"item_id": "T5_FIBER_LEVEL1@1", "qty": 3}, {"item_id": "T4_CLOTH_LEVEL1@1", "qty": 1}],
+      "2": [{"item_id": "T5_FIBER_LEVEL2@2", "qty": 3}, {"item_id": "T4_CLOTH_LEVEL2@2", "qty": 1}],
+      "3": [{"item_id": "T5_FIBER_LEVEL3@3", "qty": 3}, {"item_id": "T4_CLOTH_LEVEL3@3", "qty": 1}]
+    }
+  },
+  "T6_CLOTH": {
+    "branch": "weaver",
+    "kind": "refine",
+    "bonus_city": "Lymhurst",
+    "enchants": {
+      "0": [{"item_id": "T6_FIBER", "qty": 4}, {"item_id": "T5_CLOTH", "qty": 1}],
+      "1": [{"item_id": "T6_FIBER_LEVEL1@1", "qty": 4}, {"item_id": "T5_CLOTH_LEVEL1@1", "qty": 1}],
+      "2": [{"item_id": "T6_FIBER_LEVEL2@2", "qty": 4}, {"item_id": "T5_CLOTH_LEVEL2@2", "qty": 1}],
+      "3": [{"item_id": "T6_FIBER_LEVEL3@3", "qty": 4}, {"item_id": "T5_CLOTH_LEVEL3@3", "qty": 1}]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.venv/
+.pydeps/
+cache/
+dashboard.html
+__pycache__/
+*.pyc
+.env
